@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --color-stadium-dark: #070a13;
+  --color-stadium-panel: #0f1423;
+  --color-stadium-border: #1e2942;
+  --color-stadium-green: #10b981;
+  --color-stadium-mint: #06b6d4;
+  --color-stadium-gold: #f59e0b;
+}
+
+body {
+  background-color: var(--color-stadium-dark);
+  color: #f3f4f6;
+  font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Glassmorphism Panels */
+.glass-card {
+  background: rgba(15, 20, 35, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(30, 41, 66, 0.8);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+.glass-card-interactive {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-interactive:hover {
+  background: rgba(20, 27, 47, 0.85);
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Glow Utilities */
+.glow-pulse-green {
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+  animation: glow-pulse-green-anim 2s infinite alternate;
+}
+
+.glow-pulse-cyan {
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+  animation: glow-pulse-cyan-anim 2s infinite alternate;
+}
+
+@keyframes glow-pulse-green-anim {
+  0% { box-shadow: 0 0 5px rgba(16, 185, 129, 0.15); }
+  100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.4); }
+}
+
+@keyframes glow-pulse-cyan-anim {
+  0% { box-shadow: 0 0 5px rgba(6, 182, 212, 0.15); }
+  100% { box-shadow: 0 0 20px rgba(6, 182, 212, 0.4); }
+}
+
+/* Custom Animation for AI recommendation flow line */
+@keyframes flow-dash {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.animate-flow-dash {
+  stroke-dasharray: 8, 4;
+  animation: flow-dash 2s linear infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-stadium-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(30, 41, 66, 0.8);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.5);
+}
